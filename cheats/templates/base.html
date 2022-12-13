@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet"  crossorigin="anonymous">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'cheats:categories' %}">Все категории</a>
+              <a class="navbar-brand" href="{% url 'cheats:category_create' %}">+Категория</a>
+          </div>
+        </nav>
+        <nav class="navbar navbar-light bg-light">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'cheats:cheats' %}">Все шпаргалки</a>
+              <a class="navbar-brand" href="{% url 'cheats:cheat_create' %}">+Шпаргалка</a>
+          </div>
+        </nav>
+        <h1>{{title}}{% if category %}: {{category}}{% endif %}</h1>
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    <script src="{% static '/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

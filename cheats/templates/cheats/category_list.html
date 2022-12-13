@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+    {% for object in object_list %}
+
+            <div class="card col-md-3">
+              <img src="/media/{{ object.logo }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                  <a class="card-text" href = "{% url 'cheats:cheats' %}?category={{object.id}}">{{object.title}}</a>
+                  <a class="card-text" href = "{% url 'cheats:category_delete' object.id %}">Удалить</a>
+              </div>
+            </div>
+
+    {% endfor %}
+        </div>
+    </div>
+{% endblock %}

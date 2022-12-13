@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="row">
+    {% for object in object_list %}
+        <div class="card col-md-4">
+            <h3><a href="{% url 'cheats:cheat' object.id%}">{{object.title}}</a></h3>
+          <div class="card-body">
+              <p class="card-text" >{{object.body|slice:20}}...</p>
+              <a href="{% url 'cheats:cheat_update' object.id %}">Редактировать</a>
+              <a href="{% url 'cheats:cheat_delete' object.id %}">Удалить</a>
+          </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
